@@ -12,7 +12,7 @@ interface Props {
 export function SignInButton({}: Props) {
   const { data: session } = useSession();
 
-  console.log(session)
+  console.log('session', session)
 
   return session ? (
     <button

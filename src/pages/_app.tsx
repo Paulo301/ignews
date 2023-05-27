@@ -1,6 +1,9 @@
 import { AppProps } from "../../node_modules/next/app";
 import { Header } from "../components/Header";
 
+import { PrismicPreview } from '@prismicio/next';
+import { repositoryName } from "../../prismicio";
+
 import { SessionProvider as NextAuthProvider } from "next-auth/react"
 
 import '../styles/global.scss';
@@ -8,8 +11,10 @@ import '../styles/global.scss';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <NextAuthProvider session={pageProps.session}>
-      <Header />
-      <Component {...pageProps} />
+      <PrismicPreview repositoryName={repositoryName}>
+        <Header />
+        <Component {...pageProps} />
+      </PrismicPreview>
     </ NextAuthProvider>
   );
 }
