@@ -16,7 +16,7 @@ interface PostProps {
 }
 
 export default function Post({ post }: PostProps) {
-  const titleText = `${post.title} | Ignews`
+  const titleText = `${post.title} | Ignews`;
 
   return (
     <>
@@ -44,8 +44,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
 
   const prismic = createClient();
 
-  if(!session.activeSubscription) {
-    console.log("Alo")
+  if(!session?.activeSubscription) {
     return {
       redirect: {
         destination: '/',
