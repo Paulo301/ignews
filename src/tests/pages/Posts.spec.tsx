@@ -8,7 +8,7 @@ const posts = [
 
 jest.mock("../../../prismicio");
 
-describe('Home page', () => {
+describe('Posts page', () => {
   it('renders correctly', () => {
     render(
       <Posts posts={posts} />
@@ -21,7 +21,7 @@ describe('Home page', () => {
     const createClientMocked = jest.mocked(createClient);
 
     createClientMocked.mockReturnValueOnce({
-      getAllByType: jest.fn().mockResolvedValue([
+      getAllByType: jest.fn().mockResolvedValueOnce([
         {
           uid: 'my-new-post',
           data: {
@@ -35,7 +35,7 @@ describe('Home page', () => {
           last_publication_date: '04-01-2021'
         }
       ])
-    } as any)
+    } as any);
 
     const response = await getStaticProps({});
 
