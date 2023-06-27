@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <NextAuthProvider session={pageProps.session}>
       <PrismicPreview repositoryName={repositoryName}>
         <Header />
-        <Component {...pageProps} />
+        <Component {...pageProps} /> 
       </PrismicPreview>
     </ NextAuthProvider>
   );
